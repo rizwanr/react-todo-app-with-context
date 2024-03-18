@@ -2,6 +2,7 @@ import { Typography, Paper, AppBar, Toolbar, Grid } from '@mui/material';
 import React,{useEffect} from 'react';
 import TodoList from './TodoList'
 import TodoForm from './TodoForm'
+import { TodosProvider} from './contexts/todo-context'
 
 import useTodoState from './hooks/useTodoState'
 
@@ -51,8 +52,10 @@ In simpler terms, it's like saying: "Take all the current todo items I have, and
     </AppBar>
       <Grid container justifyContent='center' style={{ marginTop: "1rem" }}>
     <Grid item xs={11} md={8} lg={4}>
+    <TodosProvider>
       <TodoForm addTodo={addTodo} />
           <TodoList todos={todos} removeTodo={removeTodo} toggleTodo={toggleTodo} editTodo={editTodo}/>
+      </TodosProvider>
     </Grid>
     </Grid>
     
