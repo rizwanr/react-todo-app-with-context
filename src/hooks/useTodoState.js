@@ -1,8 +1,8 @@
-import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import UseLocalStorageState from './useLocalStorageState';
 
 export default (initialTodos) =>{
-  const [todos, setTodos] = useState(initialTodos);
+  const [todos, setTodos] = UseLocalStorageState("todos",initialTodos);
 
   return {
     todos,
